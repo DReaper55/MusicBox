@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">newMusic</string>
+    <string name="track_info">Entertainer</string>
+    <string name="artist_info">ZAYN</string>
+    <string name="left_length">--:--</string>
+    <string name="right_length">--:--</string>
+</resources>
