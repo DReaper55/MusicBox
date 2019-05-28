@@ -48,10 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // setting the track times to proper formats
                 SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
                 int currentPos = mediaPlayer.getCurrentPosition();
-                int duration = mediaPlayer.getDuration();
 
                 leftLength.setText(dateFormat.format(new Date(currentPos)));
-                rightLength.setText(dateFormat.format(new Date(duration - currentPos)));
             }
 
             @Override
@@ -121,9 +119,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void startMusic(){
         if(mediaPlayer != null){
+            SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
+            int currentPos = mediaPlayer.getCurrentPosition();
+            int duration = mediaPlayer.getDuration();
             mediaPlayer.start();
             updateThread();
             playButt.setBackgroundResource(android.R.drawable.ic_media_pause);
+            rightLength.setText(dateFormat.format(new Date(duration - currentPos)));
         }
     }
 
@@ -146,8 +148,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 leftLength.setText(String.valueOf(new SimpleDateFormat("mm:ss")
                                         .format(mediaPlayer.getCurrentPosition())));
-                                rightLength.setText(String.valueOf(new SimpleDateFormat("mm:ss")
-                                        .format(mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition())));
+//                                rightLength.setText(String.valueOf(new SimpleDateFormat("mm:ss")
+//                                        .format(mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition())));
                             }
                         });
                     }
